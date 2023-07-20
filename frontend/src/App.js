@@ -13,7 +13,7 @@ function App() {
         {/* public  */}
         <Route element={<PublicLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/sign-up" element={<Signup />} />
         </Route>
 
         {/* private */}
