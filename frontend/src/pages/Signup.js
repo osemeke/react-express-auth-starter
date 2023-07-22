@@ -1,4 +1,22 @@
+import React, { useState } from 'react';
+import axios from "axios";
+
 const Signup = () => {
+
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const submit = async (e) => {
+        e.preventDefault();
+
+        console.log('clicl');
+        axios.post('http://localhost:3001/sign-up', {name, email, password})
+        .then(res => {
+            console.log(res);
+        }).catch(err => console.log(err));        
+    }
+
     return (
         <div><div className="az-signup-wrapper">
         <div className="az-column-signup-left">
@@ -16,18 +34,18 @@ const Signup = () => {
           <div className="az-signup-header">
             <h2>Get Started</h2>
             <h4>It's free to signup and only takes a minute.</h4>
-            <form action="page-profile.html">
+            <form onSubmit={ submit } action="page-profile.html">
               <div className="form-group">
                 <label>Firstname &amp; Lastname</label>
-                <input type="text" className="form-control" placeholder="Enter your firstname and lastname" />
+                <input onChange={(e) => setName(e.target.value)} value={ name } type="text" className="form-control" placeholder="Enter your firstname and lastname" />
               </div>{/* form-group */}
               <div className="form-group">
                 <label>Email</label>
-                <input type="text" className="form-control" placeholder="Enter your email" />
+                <input onChange={(e) => setEmail(e.target.value)} value={ email } type="text" className="form-control" placeholder="Enter your email" />
               </div>{/* form-group */}
               <div className="form-group">
                 <label>Password</label>
-                <input type="password" className="form-control" placeholder="Enter your password" />
+                <input onChange={(e) => setPassword(e.target.value)} value={ password } type="password" className="form-control" placeholder="Enter your password" />
               </div>{/* form-group */}
               <button className="btn btn-az-primary btn-block">Create Account</button>
               <div className="row row-xs">
