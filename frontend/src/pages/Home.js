@@ -1,46 +1,53 @@
 import { NavLink } from "react-router-dom";
+import { useEffect } from "react";
 
 const Home = () => {
+
+  
+  useEffect(() => {
+
+  }, []);
+
     return (
           <>
     <div className="az-header">
     <div className="container">
       <div className="az-header-left">
-        <a href="index.html" className="az-logo"><span /> Ossy</a>
-        <a href id="azMenuShow" className="az-header-menu-icon d-lg-none"><span /></a>
+        <NavLink to="/index.html" className="az-logo"><span /> Ossy</NavLink>
+        <NavLink id="azMenuShow" className="az-header-menu-icon d-lg-none"><span /></NavLink>
       </div>{/* az-header-left */}
       <div className="az-header-menu">
         <div className="az-header-menu-header">
-          <a href="index.html" className="az-logo"><span /> Ossy</a>
-          <a href className="close">×</a>
+          <NavLink to="/index.html" className="az-logo"><span /> Ossy</NavLink>
+          <NavLink className="close">×</NavLink>
         </div>{/* az-header-menu-header */}
         <ul className="nav">
           <li className="nav-item active show">
-            <a href="index.html" className="nav-link"><i className="typcn typcn-chart-area-outline" /> Dashboard</a>
+            <NavLink to="/index.html" className="nav-link"><i className="typcn typcn-chart-area-outline" /> Dashboard</NavLink>
           </li>
           <li className="nav-item">
-            <a href="" className="nav-link with-sub"><i className="typcn typcn-document" /> Pages</a>
+            <NavLink to="/" className="nav-link with-sub"><i className="typcn typcn-document" /> Pages</NavLink>
             <nav className="az-menu-sub">
-              <a href="page-signin.html" className="nav-link">Sign In</a>
-              <a href="page-signup.html" className="nav-link">Sign Up</a>
+              <NavLink to="/page-signin.html" className="nav-link">Sign In</NavLink>
+              <NavLink to="/page-signup.html" className="nav-link">Sign Up</NavLink>
             </nav>
           </li>
           <li className="nav-item">
-            <a href="chart-chartjs.html" className="nav-link"><i className="typcn typcn-chart-bar-outline" /> Charts</a>
+            <NavLink to="/chart-chartjs.html" className="nav-link"><i className="typcn typcn-chart-bar-outline" /> Charts</NavLink>
           </li>
           <li className="nav-item">
-            <a href="form-elements.html" className="nav-link"><i className="typcn typcn-chart-bar-outline" /> Forms</a>
+            <NavLink to="/form-elements.html" className="nav-link"><i className="typcn typcn-chart-bar-outline" /> Forms</NavLink>
           </li>
           <li className="nav-item">
-            <a href="" className="nav-link with-sub"><i className="typcn typcn-book" /> Components</a>
+            <NavLink to="/" className="nav-link with-sub"><i className="typcn typcn-book" /> Components</NavLink>
             <div className="az-menu-sub">
               <div className="container">
                 <div>
                   <nav className="nav">
-                    <a href="elem-buttons.html" className="nav-link">Buttons</a>
-                    <a href="elem-dropdown.html" className="nav-link">Dropdown</a>
-                    <a href="elem-icons.html" className="nav-link">Icons</a>
-                    <a href="table-basic.html" className="nav-link">Table</a>
+                    <NavLink to="/elem-buttons.html" className="nav-link">Buttons</NavLink>
+                    <NavLink to="/elem-dropdown.html" className="nav-link">Dropdown</NavLink>
+                    <NavLink to="/elem-icons.html" className="nav-link">Icons</NavLink>
+                    <NavLink to="/table-basic.html" className="nav-link">Table</NavLink>
                   </nav>
                 </div>
               </div>{/* container */}
@@ -55,16 +62,16 @@ const Home = () => {
         </ul>
       </div>{/* az-header-menu */}
       <div className="az-header-right">
-        <a href="https://www.bootstrapdash.com/demo/azia-free/docs/documentation.html" target="_blank" className="az-header-search-link"><i className="far fa-file-alt" /></a>
-        <a href className="az-header-search-link"><i className="fas fa-search" /></a>
+        <NavLink to="/https://www.bootstrapdash.com/demo/azia-free/docs/documentation.html" target="_blank" className="az-header-search-link"><i className="far fa-file-alt" /></NavLink>
+        <NavLink className="az-header-search-link"><i className="fas fa-search" /></NavLink>
         <div className="az-header-message">
-          <a href="#"><i className="typcn typcn-messages" /></a>
+          <NavLink><i className="typcn typcn-messages" /></NavLink>
         </div>{/* az-header-message */}
         <div className="dropdown az-header-notification">
-          <a href className="new"><i className="typcn typcn-bell" /></a>
+          <NavLink className="new"><i className="typcn typcn-bell" /></NavLink>
           <div className="dropdown-menu">
             <div className="az-dropdown-header mg-b-20 d-sm-none">
-              <a href className="az-header-arrow"><i className="icon ion-md-arrow-back" /></a>
+              <NavLink className="az-header-arrow"><i className="icon ion-md-arrow-back" /></NavLink>
             </div>
             <h6 className="az-notification-title">Notifications</h6>
             <p className="az-notification-text">You have 2 unread notification</p>
@@ -98,14 +105,14 @@ const Home = () => {
                 </div>{/* media-body */}
               </div>{/* media */}
             </div>{/* az-notification-list */}
-            <div className="dropdown-footer"><a href>View All Notifications</a></div>
+            <div className="dropdown-footer"><NavLink>View All Notifications</NavLink></div>
           </div>{/* dropdown-menu */}
         </div>{/* az-header-notification */}
         <div className="dropdown az-profile-menu">
-          <a href className="az-img-user"><img src="template/img/faces/face1.jpg" alt="" /></a>
+          <NavLink className="az-img-user"><img src="template/img/faces/face1.jpg" alt="" /></NavLink>
           <div className="dropdown-menu">
             <div className="az-dropdown-header d-sm-none">
-              <a href className="az-header-arrow"><i className="icon ion-md-arrow-back" /></a>
+              <NavLink className="az-header-arrow"><i className="icon ion-md-arrow-back" /></NavLink>
             </div>
             <div className="az-header-profile">
               <div className="az-img-user">
@@ -114,11 +121,11 @@ const Home = () => {
               <h6>Aziana Pechon</h6>
               <span>Premium Member</span>
             </div>{/* az-header-profile */}
-            <a href className="dropdown-item"><i className="typcn typcn-user-outline" /> My Profile</a>
-            <a href className="dropdown-item"><i className="typcn typcn-edit" /> Edit Profile</a>
-            <a href className="dropdown-item"><i className="typcn typcn-time" /> Activity Logs</a>
-            <a href className="dropdown-item"><i className="typcn typcn-cog-outline" /> Account Settings</a>
-            <a href="page-signin.html" className="dropdown-item"><i className="typcn typcn-power-outline" /> Sign Out</a>
+            <NavLink className="dropdown-item"><i className="typcn typcn-user-outline" /> My Profile</NavLink>
+            <NavLink className="dropdown-item"><i className="typcn typcn-edit" /> Edit Profile</NavLink>
+            <NavLink className="dropdown-item"><i className="typcn typcn-time" /> Activity Logs</NavLink>
+            <NavLink className="dropdown-item"><i className="typcn typcn-cog-outline" /> Account Settings</NavLink>
+            <NavLink to="/page-signin.html" className="dropdown-item"><i className="typcn typcn-power-outline" /> Sign Out</NavLink>
           </div>{/* dropdown-menu */}
         </div>
       </div>{/* az-header-right */}
@@ -151,21 +158,21 @@ const Home = () => {
                 <h6>All Categories</h6>
               </div>{/* media-body */}
             </div>{/* media */}
-            <a href className="btn btn-purple">Export</a>
+            <NavLink className="btn btn-purple">Export</NavLink>
           </div>
         </div>{/* az-dashboard-one-title */}
         <div className="az-dashboard-nav"> 
           <nav className="nav">
-            <a className="nav-link active" data-toggle="tab" href="#">Overview</a>
-            <a className="nav-link" data-toggle="tab" href="#">Audiences</a>
-            <a className="nav-link" data-toggle="tab" href="#">Demographics</a>
-            <a className="nav-link" data-toggle="tab" href="#">More</a>
+            <NavLink className="nav-link active" data-toggle="tab" href="#">Overview</NavLink>
+            <NavLink className="nav-link" data-toggle="tab" href="#">Audiences</NavLink>
+            <NavLink className="nav-link" data-toggle="tab" href="#">Demographics</NavLink>
+            <NavLink className="nav-link" data-toggle="tab" href="#">More</NavLink>
           </nav>
           <nav className="nav">
-            <a className="nav-link" href="#"><i className="far fa-save" /> Save Report</a>
-            <a className="nav-link" href="#"><i className="far fa-file-pdf" /> Export to PDF</a>
-            <a className="nav-link" href="#"><i className="far fa-envelope" />Send to Email</a>
-            <a className="nav-link" href="#"><i className="fas fa-ellipsis-h" /></a>
+            <NavLink className="nav-link" href="#"><i className="far fa-save" /> Save Report</NavLink>
+            <NavLink className="nav-link" href="#"><i className="far fa-file-pdf" /> Export to PDF</NavLink>
+            <NavLink className="nav-link" href="#"><i className="far fa-envelope" />Send to Email</NavLink>
+            <NavLink className="nav-link" href="#"><i className="fas fa-ellipsis-h" /></NavLink>
           </nav>
         </div>
         <div className="row row-sm mg-b-20">
@@ -502,7 +509,7 @@ const Home = () => {
   <div className="az-footer ht-40">
     <div className="container ht-100p pd-t-0-f">
       <span className="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
-      <span className="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</a> from Bootstrapdash.com</span>
+      <span className="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <NavLink to="/https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</NavLink> from Bootstrapdash.com</span>
     </div>{/* container */}
   </div>{/* az-footer */}
 

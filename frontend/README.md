@@ -19,20 +19,20 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 FORM VALIDATION
 BACK error
-crud
+
 LOADER
 ENV CONFIG
 
 onChange={(e) => setEmail(e.target.value)} value={ email }
 <NavLink to="/sign-up">Create an Account</NavLink>
-
+---
 const Dashboard = () => {
     return (
         <div>Dashboard - for private layout</div>
     )
 }
 export default Dashboard;
-
+---
 function App() {
   return (
     <BrowserRouter>
@@ -55,7 +55,7 @@ function App() {
   );
 }
 
-
+---
 
 
 const RoleAccess = ({ roles = [] }) => {
@@ -65,7 +65,6 @@ const RoleAccess = ({ roles = [] }) => {
     : <Navigate to="/unauthorized" replace />;
 };
 ...
-
 <Route path="/" element={<Layout />}>
   <Route element={<RoleAccess roles={["user", "admin"]} />}>
     <Route path="/dashboard" element={<Dashboard />} />
