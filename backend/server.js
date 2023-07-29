@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(cors());
 // app.options('*', cors()) // include before other routes
 var corsOptions = {
-    origin: "http://localhost:8081"
+    origin: "http://localhost:3000"
 };
   
 app.use(cors(corsOptions));
@@ -89,7 +89,7 @@ let refreshTokens = [];
 
 const generateAccessToken = (user) => {
     return jwt.sign({ id: user.id, username: user.username }, "mySecretKey", {
-        expiresIn: "165s",
+        expiresIn: "20s",
     });
 };
 
@@ -116,7 +116,8 @@ const authenticate = (req, res, next) => {
     const authHeader = req.headers.authorization;
     if (authHeader) {
         const token = authHeader.split(" ")[1];
-
+        // console.log('header - ', authHeader);
+        // console.log('token - ', token);
         jwt.verify(token, "mySecretKey", (err, user) => {
             if (err) {
                 return res.status(403).json("Token is not valid!");
@@ -163,7 +164,7 @@ app.post("/auth/login", (req, res) => {
                     }
                     if (bResult) {
                         // const token = jwt.sign({id:result[0].id},'the-super-strong-secrect',{ expiresIn: '1h' });
-                        const user = { username, password, id: result[0].id }
+                        const user = { username, password, role: result[0].role, id: result[0].id }
                         const accessToken = generateAccessToken(user);
                         const refreshToken = generateRefreshToken(user);
                         updateRefreshToken(user,refreshToken);
@@ -174,7 +175,7 @@ app.post("/auth/login", (req, res) => {
                         return res.status(200).send({
                             msg: 'Logged in!',
                             username: user.username,
-                            isAdmin: user.isAdmin,
+                            role: user.role,
                             accessToken,
                             refreshToken,
                         });
@@ -280,7 +281,7 @@ app.get('/protected', authenticate, (req, res) => {
     res.send({message:'Welcome!', user: req.user});
 });
 
-app.get('/authorize', authenticate, authorize(['admin@oc.com']), (req, res) => {
+app.get('/authorize', authenticate, authorize(['role']), (req, res) => {
     res.send({message:'Welcome!', user: req.user});
 });
 

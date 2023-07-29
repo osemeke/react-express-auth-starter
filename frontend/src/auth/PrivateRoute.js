@@ -1,6 +1,7 @@
-const Profile = () => {
+const PrivateRoute = () => {
     return (
         <div>Dashboard - for private layout</div>
     )
 }
-export default Profile;
+
+export default PrivateRoute;

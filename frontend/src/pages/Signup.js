@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
+import { NavLink } from 'react-router-dom';
 
 const Signup = () => {
 
@@ -11,7 +12,7 @@ const Signup = () => {
         e.preventDefault();
 
         console.log('clicl');
-        axios.post('http://localhost:3001/sign-up', {name, email, password})
+        axios.post('http://localhost:3001/register', {name, email, password})
         .then(res => {
             console.log(res);
         }).catch(err => console.log(err));        
@@ -34,7 +35,7 @@ const Signup = () => {
           <div className="az-signup-header">
             <h2>Get Started</h2>
             <h4>It's free to signup and only takes a minute.</h4>
-            <form onSubmit={ submit } action="page-profile.html">
+            <form onSubmit={ submit }>
               <div className="form-group">
                 <label>Firstname &amp; Lastname</label>
                 <input onChange={(e) => setName(e.target.value)} value={ name } type="text" className="form-control" placeholder="Enter your firstname and lastname" />
@@ -55,7 +56,7 @@ const Signup = () => {
             </form>
           </div>{/* az-signup-header */}
           <div className="az-signup-footer">
-            <p>Already have an account? <a href="page-signin.html">Sign In</a></p>
+            <p>Already have an account? <NavLink to="/sign-in">Sign In</NavLink></p>
           </div>{/* az-signin-footer */}
         </div>{/* az-column-signup */}
       </div>{/* az-signup-wrapper */}
